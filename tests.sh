@@ -58,6 +58,6 @@ trie-cli insert muffin
 trie-cli insert madagascar
 
 trie-cli autocomplete m
-trie-cli autcomplete mad
+trie-cli autocomplete mad
 trie-cli autocomplete p
 trie-cli autocomplete z

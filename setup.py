@@ -11,7 +11,7 @@ with open("README.md", "r", encoding="utf-8") as file:
 
 setup(
     name='trie-cli',
-    version='0.1.2',
+    version='0.1.3',
     author = 'Pranav Mathur',
     author_email = 'pranavmathur001@gmail.com',
     description = 'A CLI to interact with a global trie data structure.',
