@@ -3,15 +3,7 @@ from py2neo import Graph, Node, Relationship
 
 app = Flask(__name__)
 
-# graph = Graph("http://192.168.1.186:7474", auth=("neo4j", "s3cr3t"))
 graph = Graph("bolt://3.239.254.72:7687", auth=("neo4j", "troop-travel-incentive"))
-
-# root = graph.nodes.match(name="_").first()
-# rcs = graph.match(nodes=[root], r_type="p").all()
-# n = graph.nodes.match(name="_pranav").first()
-# print(n)
-
-# graph.delete_all()
 
 def validate_input(word):
     if word is None:
@@ -22,11 +14,15 @@ def validate_input(word):
 
 @app.route("/insert", methods=["PUT"])
 def insert():
-    keyword = request.json["keyword"].lower()
+    keyword = request.json["keyword"]
     result, message = validate_input(keyword)
     if not result:
         return message
     keyword = message
+
+    existingNode = graph.nodes.match(name=("_"+keyword)).first()
+    if existingNode is not None and existingNode["isEnd"]:
+        return f"Keyword {keyword} already exists in trie.\n"
 
     tx = graph.begin()
     if graph.nodes.match(name="_").first() is None:

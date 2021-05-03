@@ -29,18 +29,18 @@ Return a list of autocomplete suggestions based on an input prefix
 ```bash
 trie-cli autcomplete [YOUR PREFIX]
 ```
-Display the trie:
+Display the trie (keywords are indicated with a * at the end of the node name):
 ```bash
 trie-cli display
 ```
 For detailed information on command format, run ```trie-cli --help```.
 
 ## Server
-The trie-cli global state methods are hosted in a Flask server in Heroku. The global state is stored in a Neo4j graph database running in [Neo4j Sandbox](https://neo4j.com/sandbox/). Use the following REST endpoints to test the server.
+The trie-cli global state methods run on a Flask server hosted in Heroku. The global state of the trie is stored in a Neo4j graph database running in [Neo4j Sandbox](https://neo4j.com/sandbox/). Use the following REST endpoints to test the server.
 
 | Name | Method | curl |
 |--------------|--------|-----------------------------------------------------------------------------------------------------|
-| insert | PUT | ```curl -X PUT -d keyword=[YOUR KEYWORD] "https://gentle-brushlands-20368.herokuapp.com/insert"``` |
+| insert | PUT | ```curl -X PUT -H "Content-Type: application/json" -d '{"keyword"="[YOUR KEYWORD]"} "https://gentle-brushlands-20368.herokuapp.com/insert"``` |
 | delete | DELETE | ```curl -X DELETE "https://gentle-brushlands-20368.herokuapp.com/delete?keyword=[YOUR KEYWORD]"``` |
 | search | GET | ```curl -X GET "https://gentle-brushlands-20368.herokuapp.com/search?keyword=[YOUR KEYWORD]"``` |
 | autocomplete | GET | ```curl -X GET "https://gentle-brushlands-20368.herokuapp.com/autocomplete?prefix=[YOUR PREFIX]"``` |
