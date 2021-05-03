@@ -40,7 +40,7 @@ The trie-cli global state methods run on a Flask server hosted in Heroku. The gl
 
 | Name | Method | curl |
 |--------------|--------|-----------------------------------------------------------------------------------------------------|
-| insert | PUT | ```curl -X PUT -H "Content-Type: application/json" -d '{"keyword"="[YOUR KEYWORD]"} "https://gentle-brushlands-20368.herokuapp.com/insert"``` |
+| insert | PUT | ```curl -X PUT -H "Content-Type: application/json" -d '{"keyword"="[YOUR KEYWORD]"}' "https://gentle-brushlands-20368.herokuapp.com/insert"``` |
 | delete | DELETE | ```curl -X DELETE "https://gentle-brushlands-20368.herokuapp.com/delete?keyword=[YOUR KEYWORD]"``` |
 | search | GET | ```curl -X GET "https://gentle-brushlands-20368.herokuapp.com/search?keyword=[YOUR KEYWORD]"``` |
 | autocomplete | GET | ```curl -X GET "https://gentle-brushlands-20368.herokuapp.com/autocomplete?prefix=[YOUR PREFIX]"``` |
