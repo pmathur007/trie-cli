@@ -1,3 +1,5 @@
 trie_cli.egg-info
 *.pyo
 *.pyc
+dist
+build
